@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './alarm_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -13,11 +14,11 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             _buildHeader(),
-            _buildRow("Alarm", Icons.alarm),
+            _buildRow("Alarm", Icons.alarm, context),
             Divider(),
-            _buildRow("Airport shuttle", Icons.airport_shuttle),
-            Divider(height: 5.0 ,),
-            _buildRow("Casino", Icons.casino),
+            _buildRow("Airport shuttle", Icons.airport_shuttle, context),
+            Divider(),
+            _buildRow("Casino", Icons.casino, context),
           ],
         ),
       ),
@@ -34,23 +35,37 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Row _buildRow(String text, IconData iconData) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+  _buildRow(String text, IconData iconData, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print("tap");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return AlarmScreen();
+          }),
+        );
+      },
+      child: Container(
+        color: Colors.grey,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Icon(
+              iconData,
+              size: 40.0,
+              color: Colors.redAccent,
+            ),
+          ],
         ),
-        Icon(
-          iconData,
-          size: 40.0,
-          color: Colors.redAccent,
-        ),
-      ],
+      ),
     );
   }
 }

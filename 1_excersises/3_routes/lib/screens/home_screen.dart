@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
             _buildRow("Alarm", Icons.alarm),
             Divider(),
             _buildRow("Airport shuttle", Icons.airport_shuttle),
-            Divider(height: 5.0 ,),
+            Divider(),
             _buildRow("Casino", Icons.casino),
           ],
         ),
