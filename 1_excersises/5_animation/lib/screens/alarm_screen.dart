@@ -35,10 +35,13 @@ class AlarmScreenState extends State<AlarmScreen> {
         child: Icon(Icons.casino),
       ),
       body: Center(
-        child: Icon(
-          Icons.alarm,
-          size: 80.0,
-          color: color,
+        child: Transform.rotate(
+          angle: 0.2,
+          child: Icon(
+            Icons.alarm,
+            size: 80.0,
+            color: color,
+          ),
         ),
       ),
     );
