@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
         title: Text("My first app."),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
